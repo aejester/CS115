@@ -1,0 +1,38 @@
+# I pledge my honor that I have abided by the Stevens Honor System.
+# Ryan Monaghan Picobot Lab Solutions (9/2/21)
+
+# Empty Room
+0 xxxx -> N 0
+0 Nxxx -> E 0
+0 NxWx -> W 0
+0 NExx -> W 1
+0 xExx -> N 0
+0 xExS -> N 0
+0 xxWx -> E 0
+0 xxxS -> E 0
+0 xxWS -> E 0
+
+1 xxxx -> E 1
+1 Nxxx -> W 1
+1 NxWx -> S 1
+1 xxWx -> E 1
+1 xExx -> S 2
+1 xxxS -> W 1
+
+2 xxxx -> W 2
+2 xExx -> W 2
+2 xxWx -> S 1
+2 xExS -> W 1 
+
+# Maze
+0 **x* -> W 3
+0 **W* -> X 1
+
+1 ***x -> S 0
+1 ***S -> X 2
+
+2 *x** -> E 1
+2 *E** -> X 3
+
+3 x*** -> N 2
+3 N*** -> X 0

@@ -1,0 +1,10 @@
+__pycache__/
+.vscode
+a.out
+*.cpp
+physics.py
+solver.py
+subset.py
+dnaProblem.py
+base_converter.py
+sequence_diff.py
