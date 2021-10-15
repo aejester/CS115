@@ -8,7 +8,9 @@ CS115 - Lab 6
 ################################################
 # Question 1: base 2 representation of 42 is 101010
 ################################################
-# Question 2 can be answered simply by:
+# Question 2: if decimal is even, digit is 0, else 1
+################################################
+# Question 3 can be answered simply by:
 #
 # base10: 8 | 4 | 2 | 1 |
 # base2 : 1 | 0 | 1 | 1 |
@@ -22,10 +24,13 @@ CS115 - Lab 6
 #
 # Removing a digit from a binary string drastically changes the number because of the way that conversion from base n to base 10 works.
 ################################################
-# Question 3: Let decimal = 10
+# Question 4: Let decimal = 10
 # 1. if decimal is even, add 0, else 1, then
 # 2. decimal //= 2
 # repeat until there are infinite leading zeroes
+################################################
+# Question 5: 59 in ternary is 2012
+# 2 * (3**3) + 0 * (3**2) + 1 * (3**1) + 2 * (3**0) = 59
 ################################################
 
 def isOdd(n):

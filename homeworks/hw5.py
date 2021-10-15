@@ -26,28 +26,24 @@ def fast_lucas(n):
 def fast_change(amount, coins):
     coins.sort()
 
-    if str(amount) in change_memo:
-        return change_memo[str(amount)]
+    if (str(amount), str(coins)) in change_memo:
+        return change_memo[(str(amount), str(coins))]
 
     if amount == 0:
-        change_memo[str(amount)] = 0
+        change_memo[(str(amount), str(coins))] = 0
         return 0
     elif amount > len(coins) and len(coins) == 0:
-        change_memo[str(amount)] = float("inf")
+        change_memo[(str(amount), str(coins))] = float("inf")
         return float("inf")
     elif coins[len(coins) - 1] > amount:
         ans = fast_change(amount, coins[:-1])
-        change_memo[str(amount)] = ans
-        return ans
-    elif coins[len(coins) - 1] <= amount:
-        ans = 1 + fast_change(amount - coins[len(coins) - 1], coins)
-        change_memo[str(amount)] = ans
+        change_memo[(str(amount), str(coins))] = ans
         return ans
     else:
         use = 1 + fast_change(amount - coins[len(coins) - 1], coins)
         lose = fast_change(amount, coins[:-1])
         ans = min(use, lose)
-        change_memo[str(amount)] = ans
+        change_memo[(str(amount), str(coins))] = ans
         return ans
 
 # If you did this correctly, the results should be nearly instantaneous.
