@@ -1,6 +1,6 @@
 """
 Created on 10/15/2021
-@author:   Ryan Monaghan
+@author:   Ryan Monaghan, Prithvinarayan Revuri
 Pledge:    I pledge my honor I have abided by the Stevens Honor System.
 
 CS115 - Hw 6
@@ -74,3 +74,21 @@ def uncompress(s: str, accum=0):
 def compression(s):
     """Returns the compression ratio of a binary string and a run length encoded binary string."""
     return len(compress(s)) / len(s)
+
+#LIST OF TEST CASES:
+
+#Penguin: "00011000"+"00111100"*3 + "01111110"+"11111111"+"00111100"+"00100100"
+#Compression Ratio: 1.265625
+
+#Smile: "0"*8 + "01100110"*2 + "0"*8 + "00001000" + "01000010" + "01111110" + "0"*8
+#Compression Ratio: 1.21875
+
+#Five: "1"*9 + "0"*7 + "10000000"*2 + "1"*7 + "0" + "00000001"*2 + "1"*7 + "0"
+#Compression Ratio: 0.8125
+
+#Q: explain what is the largest number of bits that your compress algorithm could possibly use to encode a 64-bit string/image.
+#A: the largest number of bits we could use is 6 bits, if a image is 64 bits of only white or only black, then we would return a binary number of 100000 which is 6 bits.
+
+#Q: argue to NASA that Professor Lai is Lai-ing—such an algorithm cannot  exist! Try to make your reasoning as convincing and water-tight as possible. (In essence, you are proving that such an algorithm cannot exist.)
+#A: The reason why an algorithm like this cannot work is because even if your compressed block size was a singular bit (which it cant be because you cannot represent multiple numbers in one bit) if there was a 64bit long string of repeating 01 or repeating 10
+# it would give you a compression of the same length. This means her LaiCompress algorithm cannot compress every image into a small bit of data.
