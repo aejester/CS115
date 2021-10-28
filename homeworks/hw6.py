@@ -18,6 +18,8 @@ MAX_RUN_LENGTH = 2 ** COMPRESSED_BLOCK_SIZE - 1
 # Do not change the variables above.
 # Write your functions here. You may use those variables in your code.
 
+# THIS CODE IS ELLIGIBLE FOR THE 5% EXTRA CREDIT.
+
 def base10_to_base2(n: int):
     """Precondition: integer argument is non-negative.
     Returns the string with the binary representation of non-negative integer n.
