@@ -125,13 +125,25 @@ Fibbonacci = """
 19 halt         #; halts program
 """
 
+ClassProblem = """
+00 read r1
+01 jltzn r1 08
+02 setn r2 0
+03 sub r3 r1 r2
+04 write r2
+05 addn r2 1
+06 jeqzn r3 08 
+07 jumpn 03
+08 halt
+"""
+
 # Set this variable to whichever program you want to execute
 # when this file is loaded.
-RunThis = Fibbonacci
+RunThis = ClassProblem
 
 # Choose whether to use debug mode; uncomment one of the following lines.
 # Mode = ['-n'] # not debug mode, 
-Mode = ['-d'] # debug mode
+Mode = ['-n'] # debug mode
 #Mode = []     # prompt for whether to enter debug mode
 
 
