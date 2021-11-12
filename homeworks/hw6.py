@@ -20,7 +20,7 @@ MAX_RUN_LENGTH = 2 ** COMPRESSED_BLOCK_SIZE - 1
 
 # THIS CODE IS ELLIGIBLE FOR THE 5% EXTRA CREDIT.
 
-def base10_to_base2(n: int):
+def base10_to_base2(n):
     """Precondition: integer argument is non-negative.
     Returns the string with the binary representation of non-negative integer n.
     If n is 0, the empty string is returned."""
@@ -38,8 +38,8 @@ def base2_to_base10(s):
     
     return (int(s[0]) * (2**(len(s)-1))) + base2_to_base10(s[1:])
 
-def group_characters(s: str, prev_s=""):
-    """Splits groups of characters into groups of 31 or less."""
+def group_characters(s, prev_s=""):
+    """Splits groups of characters into groups of MAX_RUN_LENGTH or less."""
     if len(s) == 0:
         return [prev_s] if prev_s != "" else []
     elif prev_s == "" or s[0] == prev_s[0]:
@@ -50,7 +50,7 @@ def group_characters(s: str, prev_s=""):
     else:
         return [prev_s] + group_characters(s[1:], s[0])
 
-def compress_helper(bitlist: list[str], final_bit=""):
+def compress_helper(bitlist, final_bit=""):
     """A function that does the heavy lifting for the compress function."""
     if len(bitlist) == 0:
         return []
@@ -61,13 +61,13 @@ def compress_helper(bitlist: list[str], final_bit=""):
         final = ["0" * COMPRESSED_BLOCK_SIZE] + pre_final if bitlist[0][0] == final_bit else pre_final
         return final
 
-def compress(s: str):
+def compress(s):
     """Compresses binary string s using a run length encoding algorithm."""
     bitlist = group_characters(s)
     compressed = compress_helper(bitlist)
     return "".join(["0" * COMPRESSED_BLOCK_SIZE] + compressed if bitlist[0][0] == "1" else compressed)
 
-def uncompress(s: str, accum=0):
+def uncompress(s, accum=0):
     """Uncompresses a run length encoded binary string."""
     if len(s) == 0:
         return ""
